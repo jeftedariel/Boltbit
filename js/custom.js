@@ -32,8 +32,8 @@
       loop: true,
       center: true,
       autoplayHoverPause: false,
-      autoplay: false,
-      margin: 30,
+      autoplay: true,
+      margin: 100,
       responsiveClass:true,
       responsive:{
           0:{
