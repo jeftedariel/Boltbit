@@ -103,282 +103,381 @@ import whatsappIcon from "../assets/whatsapp.svg";
 </div>
 
 <style>
-	#background-image {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(80px);
-		object-fit: cover;
-	}
+#background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(80px);
+    object-fit: cover;
+}
 
-	#landing-container {
-		font-family: "Inter", "Roboto", "Helvetica Neue", "Arial Nova",
-			"Nimbus Sans", Arial, sans-serif;
-		height: 100vh;
-		color: #f5f5f5;
-		background-color: #1e1e1e;
-	}
+#landing-container {
+    font-family: "Inter", "Roboto", "Helvetica Neue", "Arial Nova",
+        "Nimbus Sans", Arial, sans-serif;
+    height: 100vh;
+    color: #f5f5f5;
+    background-color: #1e1e1e;
+    overflow-x: hidden; /* Previene scroll horizontal */
+}
 
-	main {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem 1rem;
-	}
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    width: 100%;
+}
 
-	#hero-section {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		padding-top: 4rem;
-	}
+#hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 4rem;
+    width: 100%;
+}
 
-	@keyframes shadowTransition {
-		0% {
-			filter: drop-shadow(0 0 80px rgb(255, 202, 28))
-				drop-shadow(0 0 30px rgba(232, 255, 28, 0.8));
-		}
-		25% {
-			filter: drop-shadow(0 0 80px rgb(255, 138, 28))
-				drop-shadow(0 0 30px rgba(187, 255, 28, 0.8));
-		}
-		50% {
-			filter: drop-shadow(0 0 80px rgb(255, 240, 28))
-				drop-shadow(0 0 30px rgba(255, 213, 28, 0.8));
-		}
-		75% {
-			filter: drop-shadow(0 0 80px rgb(194, 255, 28))
-				drop-shadow(0 0 30px rgba(255, 213, 28, 0.8));
-		}
-		100% {
-			filter: drop-shadow(0 0 80px rgb(240, 255, 28))
-				drop-shadow(0 0 30px rgba(240, 255, 28, 0.8));
-		}
-	}
+@keyframes shadowTransition {
+    0% {
+        filter: drop-shadow(0 0 80px rgb(255, 202, 28))
+            drop-shadow(0 0 30px rgba(232, 255, 28, 0.8));
+    }
+    25% {
+        filter: drop-shadow(0 0 80px rgb(255, 138, 28))
+            drop-shadow(0 0 30px rgba(187, 255, 28, 0.8));
+    }
+    50% {
+        filter: drop-shadow(0 0 80px rgb(255, 240, 28))
+            drop-shadow(0 0 30px rgba(255, 213, 28, 0.8));
+    }
+    75% {
+        filter: drop-shadow(0 0 80px rgb(194, 255, 28))
+            drop-shadow(0 0 30px rgba(255, 213, 28, 0.8));
+    }
+    100% {
+        filter: drop-shadow(0 0 80px rgb(240, 255, 28))
+            drop-shadow(0 0 30px rgba(240, 255, 28, 0.8));
+    }
+}
 
-	.logo-container {
-		margin-bottom: 2rem;
-		animation: shadowTransition 4s infinite;
-	}
+.logo-container {
+    margin-bottom: 2rem;
+    animation: shadowTransition 4s infinite;
+    width: 100%;
+    max-width: 300px; /* Limita el tamaño del logo en dispositivos pequeños */
+}
 
-	.logo-container img {
-		display: block; /* Esto elimina cualquier espacio extra debajo de la imagen */
-	}
+.logo-container img {
+    display: block;
+    max-width: 100%; /* Asegura que la imagen nunca exceda su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
 
-	.hero-content {
-		max-width: 800px;
-	}
+.hero-content {
+    max-width: 800px;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
 
-	h1 {
-		font-size: 2.5rem;
-		line-height: 1.2;
-		margin-bottom: 1.5rem;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		font-weight: 700;
-	}
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Tamaño de fuente responsive */
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
 
-	.hero-description {
-		font-size: 1.25rem;
-		line-height: 1.6;
-		color: #d1d1d1;
-		margin-bottom: 2.5rem;
-	}
+.hero-description {
+    font-size: clamp(1rem, 3vw, 1.25rem); /* Tamaño de fuente responsive */
+    line-height: 1.6;
+    color: #d1d1d1;
+    margin-bottom: 2.5rem;
+}
 
-	#cta-buttons {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
+#cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
 
-	.primary-button {
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		color: white;
-		padding: 0.875rem 1.5rem;
-		border-radius: 10px;
-		font-weight: 600;
-		text-decoration: none;
-		transition: all 0.2s ease;
-		box-shadow: 0 4px 12px rgba(50, 69, 255, 0.25);
-	}
+.primary-button {
+    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(50, 69, 255, 0.25);
+    text-align: center;
+    display: block;
+}
 
-	.primary-button:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 16px rgba(50, 69, 255, 0.35);
-	}
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(50, 69, 255, 0.35);
+}
 
-	.secondary-button {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: #f5f5f5;
-		padding: 0.875rem 1.5rem;
-		border-radius: 10px;
-		font-weight: 600;
-		text-decoration: none;
-		transition: all 0.2s ease;
-		background: rgba(60, 60, 60, 0.7);
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(80, 80, 80, 0.3);
-	}
+.secondary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    gap: 0.5rem;
+    color: #f5f5f5;
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: rgba(60, 60, 60, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(80, 80, 80, 0.3);
+    text-align: center;
+}
 
-	.secondary-button:hover {
-		background: rgba(70, 70, 70, 0.9);
-	}
+.secondary-button:hover {
+    background: rgba(70, 70, 70, 0.9);
+}
 
-	#coming-soon {
-		margin: 2rem 0;
-		display: flex;
-		justify-content: center;
-	}
+#coming-soon {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
-	.notification-card {
-		display: flex;
-		gap: 1.5rem;
-		background: rgba(40, 40, 40, 0.8);
-		backdrop-filter: blur(20px);
-		border-radius: 16px;
-		padding: 2rem;
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-		max-width: 800px;
-		width: 100%;
-	}
+.notification-card {
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(40, 40, 40, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-	.notification-icon {
-		font-size: 2.5rem;
-	}
+.notification-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0; /* Previene que el icono se encoja */
+}
 
-	.notification-content {
-		flex: 1;
-	}
+.notification-content {
+    flex: 1;
+    width: 100%;
+}
 
-	.notification-content h2 {
-		font-size: 1.5rem;
-		margin-bottom: 0.75rem;
-		color: #f5f5f5;
-	}
+.notification-content h2 {
+    font-size: clamp(1.25rem, 4vw, 1.5rem); /* Tamaño de fuente responsive */
+    margin-bottom: 0.75rem;
+    color: #f5f5f5;
+}
 
-	.notification-content p {
-		color: #d1d1d1;
-		margin-bottom: 1.5rem;
-		line-height: 1.6;
-	}
+.notification-content p {
+    color: #d1d1d1;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Tamaño de fuente responsive */
+}
 
-	#subscribe-form {
-		display: flex;
-		gap: 0.5rem;
-	}
+#subscribe-form {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
 
-	#subscribe-form input {
-		flex: 1;
-		padding: 0.75rem 1rem;
-		border: 1px solid #444;
-		border-radius: 8px;
-		background-color: #333;
-		color: #f5f5f5;
-		font-family: inherit;
-	}
+#subscribe-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #f5f5f5;
+    font-family: inherit;
+    width: 100%;
+    min-width: 0; /* Soluciona problemas de desbordamiento en flex */
+}
 
-	#subscribe-form input::placeholder {
-		color: #999;
-	}
+#subscribe-form input::placeholder {
+    color: #999;
+}
 
-	#subscribe-form button {
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		color: white;
-		border: none;
-		border-radius: 8px;
-		padding: 0.75rem 1.25rem;
-		cursor: pointer;
-		font-weight: 600;
-		font-family: inherit;
-	}
+#subscribe-form button {
+    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    white-space: nowrap; /* Evita que el texto se divida en líneas */
+    flex-shrink: 0; /* Evita que el botón se encoja */
+}
 
-	footer {
-		padding-top: 2rem;
-		text-align: center;
-	}
+footer {
+    padding-top: 2rem;
+    text-align: center;
+    width: 100%;
+}
 
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1.5rem;
-		margin-bottom: 1rem;
-	}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Permite que los enlaces sociales se envuelvan */
+}
 
-	.social-links a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		background: rgba(60, 60, 60, 0.7);
-		transition: all 0.2s ease;
-	}
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(60, 60, 60, 0.7);
+    transition: all 0.2s ease;
+}
 
-	.social-links a:hover {
-		background: rgba(80, 80, 80, 0.9);
-		transform: translateY(-2px);
-	}
+.social-links a:hover {
+    background: rgba(80, 80, 80, 0.9);
+    transform: translateY(-2px);
+}
 
-	.copyright {
-		color: #999;
-		font-size: 0.875rem;
-	}
+.copyright {
+    color: #999;
+    font-size: 0.875rem;
+    padding: 0 1rem; /* Añade padding para evitar que toque los bordes */
+}
 
-	@media (max-width: 768px) {
-		h1 {
-			font-size: 2rem;
-		}
+/* Media queries mejorados */
+@media (max-width: 768px) {
+    #hero-section {
+        padding-top: 2rem;
+    }
+    
+    .notification-card {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .notification-icon {
+        font-size: 2rem;
+        margin: 0 auto; /* Centra el icono */
+    }
+    
+    #subscribe-form {
+        flex-direction: column;
+    }
+    
+    #subscribe-form button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
 
-		.hero-description {
-			font-size: 1.125rem;
-		}
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+    
+    #hero-section {
+        padding-top: 1.5rem;
+    }
+    
+    #cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+    
+    .notification-card {
+        padding: 1.25rem;
+        margin: 0 0.5rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        width: 36px;
+        height: 36px;
+    }
+}
 
-		.notification-card {
-			flex-direction: column;
-			padding: 1.5rem;
-		}
+/* Soporte para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .notification-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .notification-content p {
+        font-size: 0.85rem;
+    }
+    
+    main {
+        padding: 0.75rem;
+    }
+}
 
-		#subscribe-form {
-			flex-direction: column;
-		}
+/* Ajustes para pantallas de altura reducida */
+@media (max-height: 600px) {
+    #hero-section {
+        padding-top: 1rem;
+    }
+    
+    .logo-container {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        margin-bottom: 1.5rem;
+    }
+}
 
-		.notification-icon {
-			font-size: 2rem;
-		}
-	}
-
-	@media (max-width: 480px) {
-		h1 {
-			font-size: 1.75rem;
-		}
-
-		#hero-section {
-			padding-top: 2rem;
-		}
-
-		#cta-buttons {
-			flex-direction: column;
-			width: 100%;
-		}
-
-		.primary-button,
-		.secondary-button {
-			width: 100%;
-			text-align: center;
-			justify-content: center;
-		}
-	}
+/* Asegura comportamiento correcto en dispositivos con orientación landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+    #landing-container {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    #hero-section {
+        padding-top: 1rem;
+    }
+    
+    .logo-container {
+        max-width: 200px;
+    }
+}
 </style>
